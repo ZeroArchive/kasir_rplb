@@ -29,7 +29,18 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $kategori diisi dengan objek dari model kategori
+        $kategori = new Kategori;
+        // $kategori->nama_kategori sesuai dengan field di table
+        // $request->nama_kategori sesuai dengan nama pada form input
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->deskripsi = $request->deskripsi;
+        $kategori->save();
+        
+        return redirect('/admin/kategori');
+
+        // dd($kategori);
+        // die;
     }
 
     /**

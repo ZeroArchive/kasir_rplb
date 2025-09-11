@@ -50,3 +50,6 @@ Route::get('/admin/home', [AdminController::class, 'index']);
 
 //untuk memanggil halaman admin - Kategori
 Route::get('/admin/kategori', [KategoriController::class, 'index']);
+
+//menyimpan data kategori
+Route::post('/tambah_kategori', [KategoriController::class, 'store']);
