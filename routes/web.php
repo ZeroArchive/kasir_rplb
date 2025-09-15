@@ -53,3 +53,7 @@ Route::get('/admin/kategori', [KategoriController::class, 'index']);
 
 //menyimpan data kategori
 Route::post('/tambah_kategori', [KategoriController::class, 'store']);
+
+// update data kategori
+Route::put('/edit_kategori/{id}', [KategoriController::class, 'update'])->name('edit_kategori');
+

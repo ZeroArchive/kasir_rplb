@@ -13,7 +13,10 @@ class KategoriController extends Controller
     public function index()
     {
         //menampilkan halaman kategori
-        return view('admin.kategori');
+        // query untk memanggil data dari table
+        $data['kategori'] = Kategori::all();
+        // mengirim data ke tampilan
+        return view('admin.kategori', $data);
     }
 
     /**
@@ -36,7 +39,7 @@ class KategoriController extends Controller
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->deskripsi = $request->deskripsi;
         $kategori->save();
-        
+
         return redirect('/admin/kategori');
 
         // dd($kategori);
@@ -62,9 +65,15 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, $id)
     {
-        //
+        //mengambil data dari form edit
+        $kategori = Kategori::findOrFail($id);
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->deskripsi = $request->deskripsi;
+        $kategori->save();
+
+        return redirect('/admin/kategori');
     }
 
     /**
