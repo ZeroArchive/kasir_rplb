@@ -31,7 +31,7 @@
                         <a class="nav-link {{ Request::is('admin/kategori') ? 'active' : ''}}" href="/admin/kategori">Kategori</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Barang</a>
+                        <a class="nav-link {{ Request::is('admin/products') ? 'active' : ''}}" href="/admin/products">Barang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Transaksi</a>
