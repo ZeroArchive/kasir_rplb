@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,10 @@ class ProductsController extends Controller
          //menampilkan halaman kategori
         // query untk memanggil data dari table
         $data['products'] = Products::all();
+        $data['kategori'] = Kategori::all();
         // mengirim data ke tampilan
         return view('admin.products', $data);
+
     }
 
     /**
@@ -37,10 +40,12 @@ class ProductsController extends Controller
         // $kategori->nama_kategori sesuai dengan field di table
         // $request->nama_kategori sesuai dengan nama pada form input
         $products->nama_produk = $request->nama_produk;
-        $products->deskripsi = $request->deskripsi;
         $products->stok = $request->stok;
         $products->harga = $request->harga;
         $products->save();
+
+        //kembali ke halaman produk
+        return redirect('admin/products');
     }
 
     /**
@@ -67,10 +72,12 @@ class ProductsController extends Controller
         //mengambil data dari form edit
         $products = Products::findOrFail($id);
         $products->nama_produk = $request->nama_produk;
-        $products->deskripsi = $request->deskripsi;
         $products->stok = $request->stok;
         $products->harga = $request->harga;
         $products->save();
+
+        //kembali ke halaman produk
+        return redirect('admin/products');
 
     }
 

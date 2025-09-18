@@ -31,12 +31,13 @@
             <td class="text-center"><button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editkategori{{$data->id}}">
                 Edit
             </button>
-            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapuskategori">
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapuskategori{{ $data->id }}">
                 Hapus
             </button></td>
         </tr>
 
         @include('admin.modal.kategori_edit')
+        @include('admin.modal.kategori_delete')
         @endforeach
     </tbody>
 </table>

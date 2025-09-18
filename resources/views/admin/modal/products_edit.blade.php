@@ -2,7 +2,7 @@
 <div class="modal fade" id="editproducts{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-        <form action="/edit_barang/{{ $data->id }}" method="post">
+        <form action="/edit_products/{{ $data->id }}" method="post">
             @csrf
             @method('PUT')
       <div class="modal-header">
@@ -13,10 +13,6 @@
         <div class="mb3">
             <label for="nama_produk">Nama Barang</label>
             <input type="text" class="form-control" name="nama_produk" id="nama_produk" value="{{$data->nama_produk}}">
-        </div>
-        <div class="mb3">
-            <label for="deskripsi" class="form-label">Deskripsi</label>
-            <input type="text" class="form-control" name="deskripsi" id="deskripsi" value="{{$data->deskripsi}}">
         </div>
         <div class="mb3">
             <label for="stok" class="form-label">Stok</label>

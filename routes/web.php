@@ -58,9 +58,15 @@ Route::post('/tambah_kategori', [KategoriController::class, 'store']);
 // update data kategori
 Route::put('/edit_kategori/{id}', [KategoriController::class, 'update'])->name('edit_kategori');
 
-//untuk memanggil halaman admin - Kategori
+//untuk memanggil halaman admin - Barang
 Route::get('/admin/products', [ProductsController::class, 'index']);
 
-//menyimpan data kategori
+//menyimpan data barang
 Route::post('/tambah_products', [ProductsController::class, 'store']);
+
+// update data Barang
+Route::put('/edit_products/{id}', [ProductsController::class, 'update'])->name('edit_products');
+
+//hapus data kategori
+Route::delete('/hapus_kategori/{id}', [KategoriController::class, 'destroy'])->name('hapus_kategori');
 

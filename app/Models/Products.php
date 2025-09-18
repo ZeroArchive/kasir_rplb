@@ -15,8 +15,19 @@ class Products extends Model
     // kolom yang akan di isi dari form input
     protected $fillable = [
         'nama_produk',
-        'deskripsi',
         'stok',
         'harga'
     ];
+
+    /**
+     * Get the showkategori that owns the Products
+     *
+     * @return
+     *  \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function showkategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
+    }
 }
+

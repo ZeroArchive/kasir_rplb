@@ -17,7 +17,6 @@ return new class extends Migration
             //menambahkan kolum nama produk dengan sizze 100
             $table->string('nama_produk', 100);
             //nullable() artinya data boleh kosong atau diisi
-            $table->string('deskripsi')->nullable();
             $table->integer('stok');
             $table->integer('harga');
             $table->timestamps();

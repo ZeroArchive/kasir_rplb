@@ -17,8 +17,8 @@
         <tr>
             <th>No</th>
             <th>Nama Barang</th>
-            <th>Deskripsi</th>
             <th>Stok</th>
+            <th>Kategori</th>
             <th>Harga</th>
             <th class="text-center">Aksi</th>
         </tr>
@@ -29,8 +29,8 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->nama_produk }}</td>
-            <td>{{ $data->deskripsi }}</td>
             <td>{{ $data->stok }}</td>
+            <td>{{$data->showkategori->nama_kategori ?? '-'}}</td>
             <td>{{ $data->harga }}</td>
             <td class="text-center"><button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editproducts{{$data->id}}">
                 Edit
