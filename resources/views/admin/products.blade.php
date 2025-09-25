@@ -30,17 +30,18 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->nama_produk }}</td>
             <td>{{ $data->stok }}</td>
-            <td>{{$data->showkategori->nama_kategori ?? '-'}}</td>
-            <td>{{ $data->harga }}</td>
+            <td>{{$data->showkategori->nama_kategori}}</td>
+            <td>Rp{{ $data->harga }}</td>
             <td class="text-center"><button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editproducts{{$data->id}}">
                 Edit
             </button>
-            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapusbarang">
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproducts{{$data->id}}">
                 Hapus
             </button></td>
         </tr>
 
         @include('admin.modal.products_edit')
+        @include('admin.modal.products_delete')
         @endforeach
     </tbody>
 </table>

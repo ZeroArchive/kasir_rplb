@@ -13,9 +13,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-         //menampilkan halaman kategori
+         //menampilkan halaman produk
         // query untk memanggil data dari table
-        $data['products'] = Products::all();
+        $data['products'] = Products::with('showkategori')->get();
         $data['kategori'] = Kategori::all();
         // mengirim data ke tampilan
         return view('admin.products', $data);
@@ -35,12 +35,13 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        // $kategori diisi dengan objek dari model kategori
+        // $products diisi dengan objek dari model produk
         $products = new Products;
-        // $kategori->nama_kategori sesuai dengan field di table
-        // $request->nama_kategori sesuai dengan nama pada form input
+        // $products->nama_produk sesuai dengan field di table
+        // $request->nama_produk sesuai dengan nama pada form input
         $products->nama_produk = $request->nama_produk;
         $products->stok = $request->stok;
+        $products->kategori_id = $request->kategori_id;
         $products->harga = $request->harga;
         $products->save();
 
@@ -73,6 +74,7 @@ class ProductsController extends Controller
         $products = Products::findOrFail($id);
         $products->nama_produk = $request->nama_produk;
         $products->stok = $request->stok;
+         $products->kategori_id = $request->kategori_id;
         $products->harga = $request->harga;
         $products->save();
 
@@ -84,8 +86,11 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        //menghapus data produk berdasarkan id
+        $products = Products::findOrFail($id);
+        $products->delete();
+        return redirect('/admin/products');
     }
 }

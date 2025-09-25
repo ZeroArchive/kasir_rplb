@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TransaksiController;
 
 
 /*
@@ -69,4 +70,10 @@ Route::put('/edit_products/{id}', [ProductsController::class, 'update'])->name('
 
 //hapus data kategori
 Route::delete('/hapus_kategori/{id}', [KategoriController::class, 'destroy'])->name('hapus_kategori');
+
+//hapus data produk
+Route::delete('/hapus_products/{id}', [ProductsController::class, 'destroy'])->name('hapus_products');
+
+//memanggil halaman admin Transaksi
+Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
 

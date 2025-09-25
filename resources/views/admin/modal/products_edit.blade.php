@@ -18,6 +18,15 @@
             <label for="stok" class="form-label">Stok</label>
             <input type="text" class="form-control" name="stok" id="stok" value="{{$data->stok}}">
         </div>
+        <div class="mb-3">
+            <label for="kategori_id" class="form-label">Kategori</label>
+        <select name="kategori_id" id="kategori_id" class="form form-control" required>
+            <option value="" selected disabled>Pilih kategori.......</option>
+            @foreach($kategori as $list)
+                <option value="{{ $list->id }}">{{ $list->nama_kategori }}</option>
+            @endforeach
+        </select>
+    </div>
         <div class="mb3">
             <label for="harga" class="form-label">Harga</label>
             <input type="text" class="form-control" name="harga" id="harga" value="{{$data->harga}}">
